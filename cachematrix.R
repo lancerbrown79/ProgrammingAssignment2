@@ -23,7 +23,7 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## cacheSolve determines if a matrix inverse is already calculated (and is in cache) or if it needs to be
-## recalculated.
+## recalculated, which it then returns the value of matrix inverse to the parent environment.
 
 cacheSolve <- function(x, ...) {
         s <- x$getsolve()
