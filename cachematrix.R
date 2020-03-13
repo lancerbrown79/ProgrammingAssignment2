@@ -1,12 +1,12 @@
-## Put comments here that give an overall description of what your
-## functions do
+## makeCacheMatrix and cacheSolve work together to provide a matrix inverse calclation that is stored in memory 
+## so it is quicker to recall that calculation if it is needed, rather then forcing the program to recalculate it
+## each time that it is needed.
 
-## makeCacheMatrix initiates 2 objects (x = matrix; s = solve for matrix inverse) and
-## builds a list of 4 named functions (set(), get(), setsolve(), and getsolve()). 
-## The set function assigns the value of x in the parent environment and assigns 
-## s as NULL to remove any previously defined values for s. The get function retrieves 
-## the value of x, the getsolve function retrieves the matrix inverse (if already calculated 
-## in cache), and setsolve is able to set the matrix inverse if it is not previously calculated.
+## makeCacheMatrix initiates 2 objects (x = matrix; s = solve for matrix inverse) and builds a list of 4 named 
+## functions (set(), get(), setsolve(), and getsolve()). the set function assigns the value of x in the parent 
+## environment and assigns s as NULL to remove any previously defined values for s. The get function retrieves 
+## the value of x, setsolve assigns the input argument to the value of s in the parent environment, and the 
+## getsolve function retrieves the matrix inverse (if already calculated in cache).
 
 makeCacheMatrix <- function(x = matrix()) {
         s <- NULL
@@ -22,7 +22,8 @@ makeCacheMatrix <- function(x = matrix()) {
                 getsolve = getsolve)
 }
 
-## Write a short comment describing this function
+## cacheSolve determines if a matrix inverse is already calculated (and is in cache) or if it needs to be
+## recalculated.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
